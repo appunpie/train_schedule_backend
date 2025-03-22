@@ -7,7 +7,7 @@ router = APIRouter()
 
 @router.get("/schedule/today")
 def get_today_schedule(db: Session = Depends(get_db)):
-    today = datetime.today().strftime("%A")
+    today = datetime.today().strftime("%A")  #時間割は曜日ごとに決まっているので、曜日で区別できたらいいなあ ただスクレイピングをするだけなら曜日の情報はいらないかも
     schedules = db.query(Schedule).filter(Schedule.day_of_week == today).all()
     return {
         "schedules": [

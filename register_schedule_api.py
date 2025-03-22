@@ -16,12 +16,12 @@ class ScheduleCreate(BaseModel):
 @router.post("/schedule/")
 def create_schedule(schedule: ScheduleCreate, db: Session = Depends(get_db)):
     db_schedule = Schedule(
-        departure=schedule.departure,
-        destination=schedule.destination,
-        arrival_time=schedule.arrival_time,
-        day_of_week=schedule.day_of_week
+        departure=schedule.departure,  #出発駅を登録
+        destination=schedule.destination,  #到着駅を登録
+        arrival_time=schedule.arrival_time,  #到着時間を登録
+        day_of_week=schedule.day_of_week  #曜日を登録
     )
-    db.add(db_schedule)
+    db.add(db_schedule)  #データベースに上記のデータを追加
     db.commit()
     db.refresh(db_schedule)
     return {"message": "Schedule registered successfully", "data": db_schedule}
