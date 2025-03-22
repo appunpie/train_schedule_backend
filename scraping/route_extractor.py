@@ -1,3 +1,5 @@
+#HTMLから電車のルート(駅名・時刻・列車名・運賃・所要時間)情報を抽出して、JSON形式の辞書にまとめるコード
+
 from bs4 import BeautifulSoup
 
 # 取得したHTML（仮）
@@ -20,6 +22,7 @@ html = '''
     <li>12:31</li>  <!-- 到着時刻 -->
     <li>12:35</li>  <!-- 発車時刻 -->
 </ul>
+
 <li class="transport">
   <div>
     "京阪本線準急"<span class="destination">" 出町柳行"</span>
