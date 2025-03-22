@@ -1,4 +1,3 @@
-#HTML取得確認
 import requests
 
 #サイトのURL
