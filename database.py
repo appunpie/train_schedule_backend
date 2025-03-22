@@ -16,6 +16,7 @@ class Schedule(Base):
     departure = Column(String, index=True)  # 出発駅
     destination = Column(String, index=True)  # 到着駅
     arrival_time = Column(String)  # 到着時間（HH:MM 形式）
+    day_of_week = Column(String, index=True)  # 例: "Monday", "Tuesday" など
 
 # テーブルを作成
 def init_db():
